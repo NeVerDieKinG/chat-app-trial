@@ -6,19 +6,19 @@ const useSignup = () => {
   const [Loading, setLoading] = useState(false);
   const { AuthUser, setAuthUser } = useAuthContext();
   const signup = async ({
-    fullName,
-    username,
-    password,
-    confirmPassword,
-    gender,
+    FullName,
+    UserName,
+    Password,
+    ConfirmPassword,
+    Gender,
   }) => {
     // Check Input
     const IsSuccess = handleInputErrors({
-      fullName,
-      username,
-      password,
-      confirmPassword,
-      gender,
+      FullName,
+      UserName,
+      Password,
+      ConfirmPassword,
+      Gender,
     });
     if (!IsSuccess) return;
 
@@ -31,11 +31,11 @@ const useSignup = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullName,
-          username,
-          password,
-          confirmPassword,
-          gender,
+          FullName,
+          UserName,
+          Password,
+          ConfirmPassword,
+          Gender,
         }),
       });
       const data = await res.json();
@@ -60,23 +60,23 @@ const useSignup = () => {
 export default useSignup;
 
 function handleInputErrors({
-  fullName,
-  username,
-  password,
-  confirmPassword,
-  gender,
+  FullName,
+  UserName,
+  Password,
+  ConfirmPassword,
+  Gender,
 }) {
-  if (!fullName || !username || !password || !confirmPassword || !gender) {
+  if (!FullName || !UserName || !Password || !ConfirmPassword || !Gender) {
     toast.error("Please fill all the fields");
     return false;
   }
 
-  if (password != confirmPassword) {
+  if (Password != ConfirmPassword) {
     toast.error("Passwords do not match");
     return false;
   }
 
-  if (password.length < 6) {
+  if (Password.length < 6) {
     toast.error("Password must be at least 6 characters long");
     return false;
   }

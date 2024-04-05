@@ -5,17 +5,17 @@ import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
   const [Inputs, setInputs] = useState({
-    fullName: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-    gender: "",
+    FullName: "",
+    UserName: "",
+    Password: "",
+    ConfirmPassword: "",
+    Gender: "",
   });
 
   const { Loading, signup } = useSignup();
 
-  const handleCheckboxChange = (gender) => {
-    setInputs({ ...Inputs, gender });
+  const handleCheckboxChange = (Gender) => {
+    setInputs({ ...Inputs, Gender });
   };
 
   const handleSubmit = async (e) => {
@@ -40,9 +40,9 @@ const SignUp = () => {
               type="text"
               placeholder="John Doe"
               className="w-full input input-bordered h-10"
-              value={Inputs.fullName}
+              value={Inputs.FullName}
               onChange={(e) =>
-                setInputs({ ...Inputs, fullName: e.target.value })
+                setInputs({ ...Inputs, FullName: e.target.value })
               }
             />
           </div>
@@ -50,15 +50,15 @@ const SignUp = () => {
           {/* User Name */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text">UserName</span>
             </label>
             <input
               type="text"
               placeholder="johndoe"
               className="w-full input input-bordered h-10"
-              value={Inputs.username}
+              value={Inputs.UserName}
               onChange={(e) =>
-                setInputs({ ...Inputs, username: e.target.value })
+                setInputs({ ...Inputs, UserName: e.target.value })
               }
             />
           </div>
@@ -69,12 +69,12 @@ const SignUp = () => {
               <span className="text-base label-text">Password</span>
             </label>
             <input
-              type="password"
+              type="Password"
               placeholder="Enter Password"
               className="w-full input input-bordered h-10"
-              value={Inputs.password}
+              value={Inputs.Password}
               onChange={(e) =>
-                setInputs({ ...Inputs, password: e.target.value })
+                setInputs({ ...Inputs, Password: e.target.value })
               }
             />
           </div>
@@ -84,12 +84,12 @@ const SignUp = () => {
               <span className="text-base label-text">Confirm Password</span>
             </label>
             <input
-              type="password"
+              type="Password"
               placeholder="Confirm Password"
               className="w-full input input-bordered h-10"
-              value={Inputs.confirmPassword}
+              value={Inputs.ConfirmPassword}
               onChange={(e) =>
-                setInputs({ ...Inputs, confirmPassword: e.target.value })
+                setInputs({ ...Inputs, ConfirmPassword: e.target.value })
               }
             />
           </div>
@@ -97,7 +97,7 @@ const SignUp = () => {
           {/* Gender Check Box*/}
           <GenderCheckbox
             onCheckboxChange={handleCheckboxChange}
-            selectedGender={Inputs.gender}
+            selectedGender={Inputs.Gender}
           />
 
           {/* Already have account? */}

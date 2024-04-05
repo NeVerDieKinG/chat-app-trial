@@ -16,12 +16,12 @@ export const SocketContextProvider = ({ children }) => {
     if (AuthUser) {
       const socket = io("http://localhost:5000", {
         query: {
-          userId: AuthUser._id,
+          UserId: AuthUser.UserId,
         },
       });
       setSocket(socket);
       // socket.on() is ued to listen to the event, can be used on both server and client side
-      socket.on("getOnlineUsers", (users) => {
+      socket.on("getOnlineUser", (users) => {
         setOnlineUsers(users);
       });
 

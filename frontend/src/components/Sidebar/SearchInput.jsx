@@ -16,7 +16,7 @@ const SearchInput = () => {
     }
     // console.log(conversations)
     const conversation = conversations.find((c) =>
-      c.fullName.toLowerCase().includes(search.toLowerCase())
+      c.FullName.toLowerCase().includes(search.toLowerCase())
     );
 
     if (conversation) {

@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [Password, setPassword] = useState("");
 
   const { Loading, login } = useLogin();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(username, password);
+    await login(UserName, Password);
   };
   return (
     // format from https://tailwindcss-glassmorphism.vercel.app/
@@ -23,14 +23,14 @@ const Login = () => {
           {/* User Name */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text">UserName</span>
             </label>
             <input
               type="text"
-              placeholder="Enter username"
+              placeholder="Enter UserName"
               className="w-full input input-bordered h-10"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={UserName}
+              onChange={(e) => setUserName(e.target.value)}
             />
           </div>
           {/* Password */}
@@ -39,10 +39,10 @@ const Login = () => {
               <span className="text-base label-text">Password</span>
             </label>
             <input
-              type="password"
+              type="Password"
               placeholder="Enter Password"
               className="w-full input input-bordered h-10"
-              value={password}
+              value={Password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

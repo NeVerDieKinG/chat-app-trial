@@ -24,3 +24,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python backend
+backendChatApp/
+_BAK/
+*.cpython-310.pyc

@@ -4,10 +4,9 @@ import useConversation from "../../zustand/useConversation";
 
 const Conversation = ({ conversation, IsLastIdx, emoji }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  const IsSelected = selectedConversation?._id === conversation._id;
+  const IsSelected = selectedConversation?.UserId === conversation.UserId;
   const { onlineUsers } = useSocketContext();
-  const IsOnline = onlineUsers.includes(conversation._id);
-
+  const IsOnline = onlineUsers.includes(conversation.UserId);
   return (
     <>
       <div
@@ -18,12 +17,12 @@ const Conversation = ({ conversation, IsLastIdx, emoji }) => {
       >
         <div className={`avatar ${IsOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
-            <img src={conversation.profilePic} alt="user acatar"></img>
+            <img src={conversation.ProfilePic} alt="user acatar"></img>
           </div>
         </div>
         <div className="flex flex-col flex-1">
           <div className="flex gap-3 justify-between">
-            <p className="font-bold text-gray-200">{conversation.fullName}</p>
+            <p className="font-bold text-gray-200">{conversation.FullName}</p>
             <span className="text-xl">{emoji}</span>
           </div>
         </div>

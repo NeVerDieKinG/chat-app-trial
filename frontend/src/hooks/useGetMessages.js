@@ -10,7 +10,7 @@ const useGetMessages = () => {
     const getMessages = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/message/${selectedConversation._id}`);
+        const res = await fetch(`/api/message/${selectedConversation.UserId}`);
         const data = await res.json();
         if (data.error) throw new Error(data.error);
         setMessages(data);
@@ -20,8 +20,8 @@ const useGetMessages = () => {
         setLoading(false);
       }
     };
-    if (selectedConversation?._id) getMessages();
-  }, [selectedConversation._id]); // when this variable change, it will run useEffect
+    if (selectedConversation?.UserId) getMessages();
+  }, [selectedConversation.UserId]); // when this variable change, it will run useEffect
   return { Loading, messages };
 };
 

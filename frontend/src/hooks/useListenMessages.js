@@ -6,6 +6,7 @@ import notificationSound from "../assets/sound/notification.mp3";
 const useListenMessages = () => {
   const { socket } = useSocketContext();
   const { messages, setMessages } = useConversation();
+  const { selectedConversation, setSelectedConversation } = useConversation();
 
   useEffect(() => {
     // also cater socket not exist => avoid crash
@@ -15,7 +16,9 @@ const useListenMessages = () => {
       newMessage.shouldShake = true;
       const sound = new Audio(notificationSound);
       sound.play();
-      setMessages([...messages, newMessage]);
+      if (newMessage.SendUserId === selectedConversation.UserId) {
+        setMessages([...messages, newMessage]);
+      }
     });
     // If not off each time, it will keep adding event listener
     // after multiple time of messages changed (trigger this function multiple time)
